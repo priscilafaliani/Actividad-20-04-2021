@@ -53,4 +53,4 @@ with open(FILEPATH_DATASET, encoding = 'utf-8') as games:
         # obtengo los votos y los url de las imágenes
         top10[(row[INDEX_NAMES], row[INDEX_IMAGE_URL])] = int(row[INDEX_NUM_VOTES])
             
-imprimir_urls_y_guardar_imagenes(top10.most_common(10))
+print_and_save_images(top10.most_common(10))
