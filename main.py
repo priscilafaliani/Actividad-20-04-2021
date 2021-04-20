@@ -29,11 +29,8 @@ def save_image(url, game_name):
 
         
 
-def process_top10(top10):
-    """Imprime los urls de las imagenes de top 10 de juegos.
-    
-        Además de ser posible, guarda las imágenes.
-    """
+def imprimir_urls_y_guardar_imagenes(juegos):
+    """Imprime los urls y de ser posible, guarda las imágenes."""
     for item in top10:
         print(f'URL de la imagen del juego {item[0][0]}: {item[0][1]}')
         save_image(item[0][1], item[0][0])
@@ -54,4 +51,4 @@ with open('bgg_db_1806.csv', encoding = 'utf-8') as games:
         # obtengo los votos y los url de las imágenes
         top10[(row[INDEX_NAMES], row[INDEX_IMAGE_URL])] = int(row[INDEX_NUM_VOTES])
             
-process_top10(top10.most_common(10))
+imprimir_urls_y_guardar_imagenes(top10.most_common(10))
