@@ -31,7 +31,7 @@ def save_image(url, game_name):
 
 def imprimir_urls_y_guardar_imagenes(juegos):
     """Imprime los urls y de ser posible, guarda las imágenes."""
-    for item in top10:
+    for item in juegos:
         print(f'URL de la imagen del juego {item[0][0]}: {item[0][1]}')
         save_image(item[0][1], item[0][0])
 
