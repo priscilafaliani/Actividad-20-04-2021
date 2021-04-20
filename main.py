@@ -10,6 +10,9 @@ INDEX_NUM_VOTES = 12
 INDEX_IMAGE_URL = 13
 INDEX_MAX_PLAYERS = 5
 
+FILEPATH_DATASET = 'bgg_db_1806.csv'
+FILEPATH_IMAGES = 'images/'
+
 
 def is_cardgame_for_less_than3(category, players):
     """Retorna True si es juego de cartas para menos de 3 personas."""
@@ -22,7 +25,7 @@ def save_image(url, game_name):
     
     try:
         icono = requests.get(url)
-        with open(f'images/{game_name}.{ext}', 'wb') as imagen:
+        with open(f'{FILEPATH_IMAGES}{game_name}.{ext}', 'wb') as imagen:
             imagen.write(icono.content)
     except requests.exceptions.RequestException as e:
         print('No pudo obtenerse la imagen del url.')
@@ -36,7 +39,7 @@ def imprimir_urls_y_guardar_imagenes(juegos):
         save_image(item[0][1], item[0][0])
 
 
-with open('bgg_db_1806.csv', encoding = 'utf-8') as games:
+with open(FILEPATH_DATASET, encoding = 'utf-8') as games:
     reader = csv.reader(games)
 
     # no preciso del header, pero lo leo.
