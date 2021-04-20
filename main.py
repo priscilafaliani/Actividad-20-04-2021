@@ -37,18 +37,18 @@ def process_top10(top10):
 
 
 with open('bgg_db_1806.csv', encoding = 'utf-8') as games:
-    reader=csv.reader(games)
+    reader = csv.reader(games)
 
     # no preciso del header, pero lo leo.
-    _header=reader.__next__()
+    _header = reader.__next__()
 
-    top10=collections.Counter()
+    top10 = collections.Counter()
     for row in reader:
         # proceso los juegos de cartas que necesitan menos de 3 jugadores
         if is_cardgame_for_less_than3(row[INDEX_CATEGORY], row[INDEX_MAX_PLAYERS]):
             print(row[INDEX_NAMES])
 
         # obtengo los votos y los url de las imágenes
-        top10[(row[INDEX_NAMES], row[INDEX_IMAGE_URL])]= int(row[INDEX_NUM_VOTES])
+        top10[(row[INDEX_NAMES], row[INDEX_IMAGE_URL])] = int(row[INDEX_NUM_VOTES])
             
 process_top10(top10.most_common(10))
