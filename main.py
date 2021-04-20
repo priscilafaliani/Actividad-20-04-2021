@@ -31,7 +31,7 @@ def save_image(url, game_name):
         print('No pudo obtenerse la imagen del url.')
 
         
-def imprimir_urls_y_guardar_imagenes(juegos):
+def print_and_save_images(juegos):
     """Imprime los urls y de ser posible, guarda las imágenes."""
     for item in juegos:
         print(f'URL de la imagen del juego {item[0][0]}: {item[0][1]}')
